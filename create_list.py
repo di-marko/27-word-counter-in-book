@@ -1,3 +1,7 @@
+# Author: Dmitri Markélov
+# Date: August 2023
+# Description: This program processes a book in PDF text format and produces a list of words with their frequencies.
+
 import os
 import re
 import string
