@@ -41,7 +41,7 @@ I, for example, typed _all_
 
 ![Program scanning and generating the list](readme_images/image-4.png)
 
-### 6. A window will then inform you that the _PDF generated and saved to ... YOUR LOCATION HERE_. Click **OK**
+### 6. A window will then inform you that the "PDF generated and saved to ... YOUR LOCATION HERE". Click **OK**
 
 ### 7. At last another message will ask you if you want to open the newly generated PDF.
 
@@ -54,3 +54,8 @@ I, for example, typed _all_
 - The right column is for you to write the translation/synonyms/comments/etc., if such need arises.
 
 ![Generated PDF](readme_images/image-6.png)
+
+### 9. The words are sorted in descending order.
+
+- From most used >>> to least used
+- This way you can focus on learning the most frequent words first.
