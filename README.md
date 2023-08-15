@@ -10,3 +10,7 @@ With this list in hand, I could then craft flashcards, prioritizing the most fre
 
 For now the program can only parse the text PDFs.
 The version that can parse PDFs that have text in the images is still under development.
+
+## Run the application
+1. Clone the project and run it from your IDE
+2. Download and run the .exe file in the **dist** folder
