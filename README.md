@@ -21,7 +21,7 @@ If while generating the list you get something like this:
 
 ### 1. When you start the program
 
-You will be greeted with the screen such as shown on the image below.
+You will be greeted with the screen such as shown below.
 ![Main window](readme_images/image-1.png)
 
 ### 2. Choose the file you want to parse by clicking on the **Browse PDF**
