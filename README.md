@@ -14,11 +14,6 @@ If while generating the list you get something like this:<br/>
 ![Empty generated PDF](readme_images/image-7.png)
 ...then this means that the PDF is scanned, and the text is an actual images.
 
-## Run the application
-
-1. You can either clone the project and build it, or
-2. Download and run the stand-alone **create-list.exe** application.
-
 ### 1. When you start the program
 
 You will be greeted with the screen such as shown below.<br/>
