@@ -1,13 +1,19 @@
+import os, re, textwrap, PyPDF2
 import tkinter as tk
 import tkinter.ttk as ttk
-from tkinter import filedialog
-import os, re, textwrap, PyPDF2
+from tkinter import filedialog, messagebox
+
 from pdf_processing import (
     extract_text_from_pdf,
     count_words,
     generate_pdf,
     sort_words_by_count,
     split_string_into_lines,
+)
+
+MAX_LINE_LENGTH = 25
+ERROR_MESSAGE_FORMAT = (
+    "Invalid page range format. Please enter in the format 1-5 or 1,5."
 )
 
 
@@ -64,34 +70,42 @@ class PageRangeDialog(tk.Toplevel):
 
         center_window(self)
 
-    def on_ok(self):
-        pages_input = self.entry.get()
+    def validate_page_input(self, pages_input):
         if pages_input.lower() == "all":
             self.result = (0, self.total_pages - 1)
-        else:
-            try:
-                start_page, end_page = map(int, re.split(r"[-,]", pages_input))
+            return True
+        try:
+            pages = list(map(int, re.split(r"[-,]", pages_input)))
+            if len(pages) == 1:  # Only one page number is given
+                start_page = end_page = pages[0] - 1
+            elif len(pages) == 2:  # Both start and end pages are given
+                start_page, end_page = pages
                 start_page -= 1
                 end_page -= 1
-                if (
-                    0 <= start_page < self.total_pages
-                    and 0 <= end_page < self.total_pages
-                    and start_page <= end_page
-                ):
-                    self.result = (start_page, end_page)
-                else:
-                    ttk.messagebox.showwarning(
-                        "Invalid Range",
-                        f"Please enter a valid page range between 1 and {self.total_pages}.",
-                    )
-                    return
-            except:
-                ttk.messagebox.showwarning(
-                    "Invalid Format",
-                    "Invalid page range format. Please enter in the format 1-5 or 1,5.",
+            else:
+                raise ValueError("Invalid number of page values provided.")
+
+            if (
+                0 <= start_page < self.total_pages
+                and 0 <= end_page < self.total_pages
+                and start_page <= end_page
+            ):
+                self.result = (start_page, end_page)
+                return True
+            else:
+                tk.messagebox.showwarning(
+                    "Invalid Range",
+                    f"Please enter a valid page range between 1 and {self.total_pages}.",
                 )
-                return
-        self.destroy()
+                return False
+        except ValueError:
+            tk.messagebox.showwarning("Error", ERROR_MESSAGE_FORMAT)
+            return False
+
+    def on_ok(self):
+        pages_input = self.entry.get()
+        if self.validate_page_input(pages_input):
+            self.destroy()
 
     def on_cancel(self):
         self.destroy()
@@ -127,6 +141,9 @@ class Application(tk.Tk):
         self.config(menu=self.menu)
 
         # Browse PDF Button
+        self.browse_button = ttk.Button(
+            self, text="Browse PDF", command=self.browse_pdf, takefocus=False
+        )
         self.browse_button = ttk.Button(
             self, text="Browse PDF", command=self.browse_pdf, takefocus=False
         )
