@@ -1,6 +1,6 @@
-# Book Word Analyzer
+# Word Counter in Books
 
-This project I initiated out of personal interest.
+I created this project to fulfill my own need to create word lists based on books I read in a foreign language.
 
 While reading a book in a foreign language, and grappling with its meaning, I was struck by an idea.
 Why not extract all the words and create a frequency list, along with a space for translations?
@@ -8,20 +8,20 @@ With this list in hand, I could then craft flashcards, prioritizing the most fre
 
 ## Please note!
 
-For now the program can only parse the text PDFs.
+For now the program can only parse the TEXT PDFs.
 The version that can parse PDFs that have text in the images is still under development.
-If while generating the list you get something like this:
+If while generating the list you get something like this:<br/>
 ![Empty generated PDF](readme_images/image-7.png)
-...then this means that the PDF is scanned, and the text is in the images.
+...then this means that the PDF is scanned, and the text is an actual images.
 
 ## Run the application
 
-1. Clone the project and run it from your IDE
-2. Download and run the .exe file in the **dist** folder
+1. You can either clone the project and build it, or
+2. Download and run the stand-alone **create-list.exe** application.
 
 ### 1. When you start the program
 
-You will be greeted with the screen such as shown below.
+You will be greeted with the screen such as shown below.<br/>
 ![Main window](readme_images/image-1.png)
 
 ### 2. Choose the file you want to parse by clicking on the **Browse PDF**
@@ -34,7 +34,7 @@ You will be greeted with the screen such as shown below.
 
 You will see the total amount of pages in the file.
 You will as well be presented with a few options on how you want to parse the file.
-I, for example, typed _all_
+I, for example, typed _all_ <br/>
 ![Parse all book](readme_images/image-3.png)
 
 ### 5. Click **OK** and choose where you want to save your file. After that wait for the program to scan and create the list for you.
@@ -51,7 +51,7 @@ I, for example, typed _all_
 
 - Left column is the word
 - Middle column represents the frequency of that word in the book, or a file.
-- The right column is for you to write the translation/synonyms/comments/etc., if such need arises.
+- The right column is for you to write the translation/synonyms/comments/etc., if such need arises.<br/>
 
 ![Generated PDF](readme_images/image-6.png)
 
